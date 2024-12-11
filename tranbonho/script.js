@@ -3,8 +3,16 @@ const messages = [
 ];
 
 function generateRandomNotifications() {
-  const notificationCount = 100;
+  
+  const audioPlayer = document.getElementById("audioPlayer");
 
+  if(audioPlayer.paused) {
+    audioPlayer.play();
+  }else{
+    audioPlayer.currentTime = 0;
+  }
+
+  const notificationCount = 100;
   for (let i = 0; i < notificationCount; i++) {
     setTimeout(() => {
       const notification = document.createElement('div');
@@ -37,3 +45,10 @@ function minimizeNotification(button) {
 document.addEventListener("DOMContentLoaded", function () {
   var encodedText = '&#68;&#101;&#115;&#105;&#103;&#110;&#32;&#98;&#121;&#32;&#80;&#97;&#110;&#98;&#97;&#112;';
 });
+
+// const playButton = document.getElementById('playButton');
+// const audioPlayer = document.getElementById('audioPlayer');
+
+// playButton.addEventListener('click', function () {
+//   audioPlayer.play();
+// });
